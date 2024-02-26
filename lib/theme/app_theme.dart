@@ -12,8 +12,30 @@ class AppTheme {
   //constante de temas
   static final ThemeData lightTheme = ThemeData.light().copyWith(
     scaffoldBackgroundColor: backColor,
-    appBarTheme: const AppBarTheme(
+    appBarTheme:  AppBarTheme(
       color: primaryColor,
+      titleTextStyle: GoogleFonts.lato(
+        color: backColor,
+        fontSize: 28.5,
+        fontWeight: FontWeight.bold,
+      ),
+    ),
+    iconTheme: const IconThemeData(
+      color: primaryColor,
+      size: 35.0
+    ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all(
+          primaryColor
+        ),
+        foregroundColor: MaterialStateProperty.all(
+          Colors.white,
+        ),
+        textStyle: MaterialStateProperty.all(
+          GoogleFonts.pacifico(fontSize: 25.5)
+        ),
+      ),
     ),
     textTheme: TextTheme(
       //titulos muy grandes
