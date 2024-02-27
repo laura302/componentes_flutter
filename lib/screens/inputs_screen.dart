@@ -9,6 +9,9 @@ class InputsScreen extends StatefulWidget {
 }
 
 class InputsScreenState extends State<InputsScreen> {
+  bool switchValue = false; //Controlador al witge
+  double sliderValue = 0.0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,13 +19,16 @@ class InputsScreenState extends State<InputsScreen> {
         title: const Text ('Entradas'),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Text(
             'Entradas',
             style:AppTheme.lightTheme.textTheme.headlineLarge,
             ),
-          Row(
+            entradaNombre(),
+            entradaSwitch(),
+            entradaSlider(),
+           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               ElevatedButton(
@@ -43,6 +49,58 @@ class InputsScreenState extends State<InputsScreen> {
           )
         ],
       ),
+    );
+  }
+
+  TextField entradaNombre() {
+    return TextField(
+            style: AppTheme.lightTheme.textTheme.headlineLarge,
+            decoration: InputDecoration(
+              border: const UnderlineInputBorder(),
+                labelText: 'Escribe tu nombre: ',
+                labelStyle : AppTheme.lightTheme.textTheme.headlineLarge,
+            ),
+          );
+  }
+  Row entradaSwitch(){
+  return Row (
+    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    children: <Widget>[
+    Text(
+      '¿Te dusta flutter?',
+      style: AppTheme.lightTheme.textTheme.headlineSmall,
+    ),
+    Switch(
+    value: switchValue,
+    onChanged: (value){
+      setState(() {
+        switchValue= value;
+      });
+      }),
+    ],
+    );
+  }
+  Column entradaSlider(){
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Text('Indica que tanto te gusta flutter : ',
+        style: AppTheme.lightTheme.textTheme.headlineLarge,
+        ),
+        Slider(
+          min: 0.0,
+          max: 10.0,
+          activeColor: AppTheme.tercerColor,
+          value: sliderValue,
+          divisions: 10,
+          label: '${sliderValue.round()}',
+          onChanged: (value){
+            setState(() {
+              sliderValue= value;
+              print('Se cambio el slider: $sliderValue');
+            });
+          }),
+      ],
     );
   }
 }

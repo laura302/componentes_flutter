@@ -9,6 +9,7 @@ class AppTheme {
   static const secondaryColor = Color.fromARGB(245, 0, 0, 0);
   //constante de color de fondo
   static const backColor = Color.fromARGB(246, 252, 192, 230);
+  static const tercerColor = Color.fromARGB(173, 143, 17, 97);
   //constante de temas
   static final ThemeData lightTheme = ThemeData.light().copyWith(
     scaffoldBackgroundColor: backColor,
@@ -48,6 +49,11 @@ class AppTheme {
         decorationColor: primaryColor,
         decorationStyle: TextDecorationStyle.dotted,
         decorationThickness: 2.0,
+      ),
+      headlineMedium: GoogleFonts.montserrat(
+        color: secondaryColor,
+        fontSize: 22.5,
+        fontWeight: FontWeight.bold,
       ),
       //Estilo para texto muy pequeño
       bodySmall: GoogleFonts.alexandria(
