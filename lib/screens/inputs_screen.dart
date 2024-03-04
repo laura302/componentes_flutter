@@ -18,34 +18,33 @@ class InputsScreenState extends State<InputsScreen> {
       appBar: AppBar(
         title: const Text ('Entradas'),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Text(
-            'Entradas',
-            style:AppTheme.lightTheme.textTheme.headlineLarge,
-            ),
-            entradaNombre(),
-            entradaSwitch(),
-            entradaSlider(),
-           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              ElevatedButton(
-               onPressed: null,
-               child: Text(
-                'Regresar',
-               style: AppTheme.lightTheme.textTheme.bodySmall,
-               )
-              ),
-              ElevatedButton(
-               onPressed: null,
-               child: Text(
-                'Ventana de datos',
-               style: AppTheme.lightTheme.textTheme.bodySmall,
-               )
-              ),
-            ],
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+              entradaNombre(),
+              entradaSwitch(),
+              entradaSlider(),
+            const ElevatedButton(
+                 onPressed: null,
+                 child: Text(
+                  'Guardar',
+                 )
+                ),
+          ],
+        ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: AppTheme.primaryColor,
+        items: const [
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home),
+          label: 'Inicio',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.data_exploration),
+          label: 'Datos',
           )
         ],
       ),
