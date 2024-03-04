@@ -1,3 +1,4 @@
+import 'package:componentes/screens/images_screen.dart';
 import 'package:componentes/screens/infinite_scroll_screen.dart';
 import 'package:componentes/screens/inputs_screen.dart';
 import 'package:componentes/screens/notifications_screen.dart';
@@ -90,8 +91,34 @@ class HomeScreen extends StatelessWidget {
               Navigator.push(context, ruta3);
             },
           ),
+          const Divider(),
+          ListTile(
+            title: Text(
+              'Imagenes',
+              style: AppTheme.lightTheme.textTheme.headlineLarge,
+              ),
+            subtitle: Text(
+              'Mostar unas fotos bonitas ',
+              style: AppTheme.lightTheme.textTheme.bodySmall
+              ),
+            leading: IconTheme(
+              data: AppTheme.lightTheme.iconTheme,
+              child:const Icon(Icons.image_outlined),
+              ),
+            trailing:IconTheme(
+              data: AppTheme.lightTheme.iconTheme,
+              child: const Icon(Icons.notification_add),
+              ),
+            onTap: () {
+              final ruta3 = MaterialPageRoute(builder: (context){
+                return const ImagesScreen();
+              });
+              Navigator.push(context, ruta3);
+            },
+          ),
         ],
       ),
     );
   }
 }
+      
