@@ -57,7 +57,7 @@ class _ImagesScreenState extends State<ImagesScreen> {
       child: Image.network('https://static.wikia.nocookie.net/new-fantendo/images/3/38/Kirby_2.png/revision/latest?cb=20141022180453&path-prefix=es'),
     );
   }
-  Stack imageFade(){
+  Stack ImageFade(){
     return Stack(
       children: <Widget> [
         const Center(
